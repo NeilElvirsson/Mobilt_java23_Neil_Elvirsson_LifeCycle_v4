@@ -23,7 +23,6 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var name: String
     private lateinit var lastName: String
     private lateinit var phone: String
-    //private lateinit var radioGrop: RadioGroup
     private lateinit var selectedRadioButton: RadioButton
 
 
@@ -114,11 +113,15 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     fun write() {
-        // Create a new user with a first and last name
+
+        val selectedText = selectedRadioButton.text.toString()
+
         val user = hashMapOf(
             "name" to this.name,
-            "last" to this.lastName,
-            "phone" to this.phone
+            "lastname" to this.lastName,
+            "phone" to this.phone,
+            "gender" to selectedText
+
 
         )
         db.collection("users")

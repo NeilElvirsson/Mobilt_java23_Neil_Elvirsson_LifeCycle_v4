@@ -23,7 +23,7 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var name: String
     private lateinit var lastName: String
     private lateinit var phone: String
-    private lateinit var radioGrop: RadioGroup
+    //private lateinit var radioGrop: RadioGroup
     private lateinit var selectedRadioButton: RadioButton
 
 
@@ -72,7 +72,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            selectedRadioButton = findViewById(R.id.radioGroup)
+            selectedRadioButton = findViewById(checkedId)
             val selectedText = selectedRadioButton.text.toString()
             Toast.makeText(this, "Selected: $selectedText", Toast.LENGTH_SHORT).show()
 

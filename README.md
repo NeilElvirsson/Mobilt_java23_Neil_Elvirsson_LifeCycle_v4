@@ -2,5 +2,9 @@
 
 #Mobile app for form and login
 #Screenshot: 
-<img src="Screenshot_20240905_164034.png" alt="Alt text" title="Optional title">
+<img 
+  src="Screenshot_20240905_164034.png" 
+  alt="Alt text" 
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
 

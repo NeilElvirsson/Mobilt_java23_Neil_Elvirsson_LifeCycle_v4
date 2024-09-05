@@ -6,5 +6,5 @@
   src="Screenshot_20240905_164034.png" 
   alt="Alt text" 
   title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 100px">
+  style="display: inline-block; margin: 0 auto; max-width: 150px">
 

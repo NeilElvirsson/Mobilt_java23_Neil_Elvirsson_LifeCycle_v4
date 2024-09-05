@@ -9,7 +9,7 @@
   style="display: inline-block; margin: 0 auto; max-width: 50px">
 
   <img 
-  src="  Screenshot_20240905_164309.png" 
+  src="Screenshot_20240905_164309.png" 
   alt="register page" 
   title="register page"
   style="display: inline-block; margin: 0 auto; max-width: 50px">

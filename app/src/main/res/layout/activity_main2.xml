@@ -46,11 +46,11 @@
         android:layout_width="233dp"
         android:layout_height="54dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="email@gmail.com"
         android:inputType="textEmailAddress"
-        app:layout_constraintTop_toBottomOf="@id/lastName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/lastName" />
 
     <EditText
         android:id="@+id/phone"
@@ -108,5 +108,15 @@
         app:layout_constraintTop_toBottomOf="@id/registerButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="183dp"
+        android:layout_height="99dp"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/grit_academy_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

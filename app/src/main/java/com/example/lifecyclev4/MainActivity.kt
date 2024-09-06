@@ -1,27 +1,27 @@
 package com.example.lifecyclev4
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.Firebase
-import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.firestore
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var loginEmail: String
+    private val sharedPreFile = "com.example.lifecyclev4.PREFERENCE_FILE_KEY"
+    /*
     private val hardcodedUsername = "admin";
     private val hardcodedPassword = "1234";
 
 
-
-
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,23 +29,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // write()
 
-        val usernameField = findViewById<EditText>(R.id.userName);
-        val passwordField = findViewById<EditText>(R.id.password);
+        auth = FirebaseAuth.getInstance()
+
+        val emailEditText = findViewById<EditText>(R.id.email);
+        val passwordEditText = findViewById<EditText>(R.id.password);
         val loginButton = findViewById<Button>(R.id.registerButton);
 
+        val sharedPreferences = getSharedPreferences(sharedPreFile, MODE_PRIVATE)
+        this.loginEmail = sharedPreferences.getString("email", "") ?: ""
+
+        emailEditText.setText(this.loginEmail)
+
         loginButton.setOnClickListener {
-            val username = usernameField.text.toString()
-            val password = passwordField.text.toString()
+            this.loginEmail = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
 
-            if(username == hardcodedUsername && password == hardcodedPassword) {
-
-                val intent = Intent(this, MainActivity2::class.java)
-                startActivity(intent)
-            } else {
-                Log.d("Main activity", "Fel användarnamn eller lösenord")
-            }
+            loginUser(this.loginEmail, password)
         }
-
 
 
 
@@ -57,7 +57,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Create a new user with a first and last name
+   private fun loginUser(email: String, password: String) {
+       if(email.isNotEmpty() && password.isNotEmpty()) {
+           auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this) {task ->
+               if(task.isSuccessful) {
+
+                   Toast.makeText(this, "Login succeeded!", Toast.LENGTH_SHORT).show()
+                   val intent = Intent(this, MainActivity2::class.java)
+                   startActivity(intent)
+               } else {
+                   Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+               }
+
+           }
+
+       } else {
+           Toast.makeText(this, "Please enter all fields!", Toast.LENGTH_SHORT).show()
+       }
+   }
 
 
 }

@@ -18,7 +18,7 @@
   title="register page"
   style="display: inline-block; margin: 0 auto; max-width: 50px">
   <img 
-  src="Screenshot_20240905_174750.png" 
+  src="Screenshot_20240906_224039.png" 
   alt="register page" 
   title="register page"
   style="display: inline-block; margin: 0 auto; max-width: 50px">
